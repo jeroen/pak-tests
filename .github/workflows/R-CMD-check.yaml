@@ -44,6 +44,6 @@ jobs:
           packages: any::sessioninfo
 
       - name: Test pak install
-        run: pak::pak("tidyverse")
+        run: pak::pak("tidyverse", upgrade = TRUE)
         shell: Rscript {0}
 
