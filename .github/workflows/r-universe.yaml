@@ -21,6 +21,8 @@ jobs:
         run: |
           install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/${{matrix.pak}}/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
           pak::pak('enrichplot')
+          options(repos = c(UNIVERSE = 'https://r-lib.r-universe.dev', getOption('repos')))
+          pak::pak('pkgdown')
         shell: Rscript {0}
 
   r-universe-macos:
@@ -37,6 +39,8 @@ jobs:
           options(repos = c(CRAN = 'https://cran.r-project.org', BIOC = 'https://bioc.r-universe.dev'))
           install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/${{matrix.pak}}/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
           pak::pak('enrichplot')
+          options(repos = c(UNIVERSE = 'https://r-lib.r-universe.dev', getOption('repos')))
+          pak::pak('pkgdown')
         shell: Rscript {0}
 
   r-universe-windows:
@@ -51,4 +55,6 @@ jobs:
           options(repos = c(CRAN = 'https://cran.r-project.org', BIOC = 'https://bioc.r-universe.dev'))
           install.packages("pak", repos = sprintf("https://r-lib.github.io/p/pak/${{matrix.pak}}/%s/%s/%s", .Platform$pkgType, R.Version()$os, R.Version()$arch))
           pak::pak('enrichplot')
+          options(repos = c(UNIVERSE = 'https://r-lib.r-universe.dev', getOption('repos')))
+          pak::pak('pkgdown')
         shell: Rscript {0}
